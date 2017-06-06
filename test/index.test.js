@@ -10,7 +10,7 @@ describe('Hellobar', function() {
   var analytics;
   var hellobar;
   var options = {
-    apiKey: 'bb900665a3090a79ee1db98c3af21ea174bbc09f'
+    apiKey: 'a18c23dec1b87e9401465165eca61459d405684d'
   };
 
   beforeEach(function() {
@@ -28,14 +28,13 @@ describe('Hellobar', function() {
     sandbox();
   });
 
-  after(function() {
+  afterEach(function() {
     reset();
   });
 
   it('should have the right settings', function() {
     analytics.compare(Hellobar, integration('Hello Bar')
       .assumesPageview()
-      .global('_hbq')
       .option('apiKey', ''));
   });
 
@@ -44,18 +43,7 @@ describe('Hellobar', function() {
       analytics.stub(hellobar, 'load');
     });
 
-    afterEach(function() {
-      reset();
-    });
-
     describe('#initialize', function() {
-      it('should create the window._hbq object', function() {
-        analytics.assert(window._hbq === undefined);
-        analytics.initialize();
-        analytics.page();
-        analytics.assert(window._hbq);
-      });
-
       it('should call #load', function() {
         analytics.initialize();
         analytics.page();
