@@ -1,3 +1,10 @@
+3.0.0 / 2017-06-06
+==================
+
+  * Update to use newest script
+  * Remove _hbq global var
+  * Bump AJS Tester version
+
 2.0.0 / 2016-06-21
 ==================
 
